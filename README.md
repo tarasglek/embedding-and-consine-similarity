@@ -3,6 +3,8 @@ https://medium.com/@nils_reimers/openai-gpt-3-text-embeddings-really-a-new-state
 
 with https://www.youtube.com/watch?v=coaaSxys5so
 
+and https://github.com/eulerto/pg_similarity
+
 Sample:
 ```
 time python semsimilarity.py
