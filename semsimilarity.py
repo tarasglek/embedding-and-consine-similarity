@@ -1,5 +1,8 @@
 from sentence_transformers import SentenceTransformer, util
+import torch
+import hashlib
 model = SentenceTransformer('all-MiniLM-L6-v2')
+
 
 # Two lists of sentences
 sentences1 = ['The cat sits outside',
@@ -19,4 +22,7 @@ cosine_scores = util.cos_sim(embeddings1, embeddings2)
 
 #Output the pairs with their score
 for i in range(len(sentences1)):
-    print("{} \t\t {} \t\t Score: {:.4f}".format(sentences1[i], sentences2[i], cosine_scores[i][i]))
+    right = i
+    print(f"{sentences1[i]}", hashlib.sha256(embeddings1[i].cpu().numpy()).hexdigest(), len(embeddings1[i]))
+
+    print("{} \t\t {} \t\t Score: {:.4f}".format(sentences1[i], sentences2[right], cosine_scores[i][right]))
